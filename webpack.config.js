@@ -5,9 +5,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, "src/index.ts"),
   resolve: {
-    extensions: [".vue", ".js"]
+    extensions: [".ts", ".vue", ".js"]
   },
   module: {
     rules: [
@@ -18,6 +18,14 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
       {
         test: /\.css$/,
