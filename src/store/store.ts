@@ -9,8 +9,10 @@ export const state: StoreOptions<RootState> = {
   },
   mutations: {
     populateTasks(state: RootState, tasks: Task[]): void {
-      console.log(state);
       state.tasks = tasks;
+    },
+    addTask(state: RootState, task: Task): void {
+      state.tasks.push(task);
     }
   },
   actions: {
@@ -24,6 +26,8 @@ export const state: StoreOptions<RootState> = {
   getters: {
     allTasks(state: RootState): Task[] {
       return state.tasks;
-    }
+    },
+    getTaskById: (state: RootState) => (id: String): Task | undefined =>
+      state.tasks.find(task => task.id === id)
   }
 };
