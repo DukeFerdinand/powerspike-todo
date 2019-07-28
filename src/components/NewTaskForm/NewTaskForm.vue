@@ -21,7 +21,10 @@ export default class NewTaskForm extends Vue {
   }
 
   submitTask(): void {
-    console.log(this.title, this.content);
+    this.$store.dispatch("createTask", {
+      title: this.title,
+      content: this.content
+    });
   }
 
   mounted() {

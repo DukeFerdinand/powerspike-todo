@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { GetTasks } from "../types/ResponseTypes";
-import { Task } from "../types/Task";
+import { Task, NewTask } from "../types/Task";
 
 const axiosConfig: AxiosRequestConfig = {
   baseURL: "/api"
@@ -12,4 +12,11 @@ const API: AxiosInstance = axios.create(axiosConfig);
 export const retrieveTasks = async (): Promise<AxiosResponse<GetTasks>> => {
   const tasks = await API.get<GetTasks>("/");
   return tasks;
+};
+
+export const createTask = async (
+  newTask: NewTask
+): Promise<AxiosResponse<Task>> => {
+  const task = await API.post("/new", { ...newTask });
+  return task;
 };

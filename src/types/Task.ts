@@ -4,3 +4,8 @@ export interface Task {
   created: Number;
   content: String;
 }
+
+export interface NewTask {
+  title: String;
+  id: String;
+}

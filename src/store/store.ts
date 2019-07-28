@@ -1,7 +1,10 @@
 import Vue from "vue";
 import { StoreOptions, Action, ActionContext } from "vuex";
+
+import { createTask, retrieveTasks } from "../utils/API";
+
 import RootState from "../types/RootState";
-import { Task } from "../types/Task";
+import { Task, NewTask } from "../types/Task";
 
 export const state: StoreOptions<RootState> = {
   state: {
@@ -10,9 +13,6 @@ export const state: StoreOptions<RootState> = {
   mutations: {
     populateTasks(state: RootState, tasks: Task[]): void {
       state.tasks = tasks;
-    },
-    addTask(state: RootState, task: Task): void {
-      state.tasks.push(task);
     }
   },
   actions: {
@@ -21,6 +21,13 @@ export const state: StoreOptions<RootState> = {
       tasks: Task[]
     ): void {
       commit("populateTasks", tasks);
+    },
+    async createTask({ commit }: ActionContext<RootState, {}>, task: NewTask) {
+      const insertedTask = await createTask(task);
+      // This extra step is only required because
+      // we don't return the new task object upon inserting :( No way to get the ID
+      const result = await retrieveTasks();
+      commit("populateTasks", result.data.tasks);
     }
   },
   getters: {
