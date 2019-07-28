@@ -19,7 +19,7 @@ export default class TaskBody extends Vue {}
 @import "../../styles/_theme.scss";
 .task-body {
   background: $background-secondary;
-  padding: $padding-todo;
+  padding: $padding-task;
   padding-bottom: 20px;
 }
 </style>

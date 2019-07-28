@@ -21,7 +21,7 @@ export default class TaskHeader extends Vue {}
   .title {
     color: $text-main;
     font-size: 18pt;
-    padding: $padding-todo;
+    padding: $padding-task;
   }
 }
 </style>
