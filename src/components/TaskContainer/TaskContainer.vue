@@ -1,5 +1,9 @@
 <template>
   <div class="task-container">
+    <container-section>
+      <container-header title="Add a task" />
+      <new-task-form />
+    </container-section>
     <!-- Center task column -->
     <container-section>
       <container-header title="Tasks" />
@@ -21,6 +25,7 @@ import { Component } from "vue-property-decorator";
 
 import ContainerHeader from "../ContainerHeader/ContainerHeader.vue";
 import ContainerSection from "../ContainerSection/ContainerSection.vue";
+import NewTaskForm from "../NewTaskForm/NewTaskForm.vue";
 import Task from "../Task/Task.vue";
 
 import { Task as TaskType } from "../../types/Task";
@@ -29,7 +34,8 @@ import { Task as TaskType } from "../../types/Task";
   components: {
     ContainerHeader,
     ContainerSection,
-    Task
+    Task,
+    NewTaskForm
   }
 })
 export default class TaskContainer extends Vue {

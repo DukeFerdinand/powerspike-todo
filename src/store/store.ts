@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { StoreOptions, Action, ActionContext } from "vuex";
 import RootState from "../types/RootState";
-import Task from "../types/Task";
+import { Task } from "../types/Task";
 
 export const state: StoreOptions<RootState> = {
   state: {
