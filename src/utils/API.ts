@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { GetTasks } from "../types/ResponseTypes";
-import Task from "../types/Task";
+import { Task } from "../types/Task";
 
 const axiosConfig: AxiosRequestConfig = {
   baseURL: "/api"

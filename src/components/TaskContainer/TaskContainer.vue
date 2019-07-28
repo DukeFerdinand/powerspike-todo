@@ -1,34 +1,61 @@
 <template>
   <div class="task-container">
-    <template v-if="tasks[0]">
-      <template v-for="task in tasks">
-        <div :key="task.id" class="task">
-          <p>{{task.title}}</p>
-          <p>{{task.content}}</p>
-        </div>
+    <!-- Center task column -->
+    <container-section>
+      <container-header title="Tasks" />
+      <template v-if="tasks[0]">
+        <template v-for="task in tasks">
+          <task :key="task.id" :task="task" />
+        </template>
       </template>
-    </template>
+      <template v-else>
+        <task :task="defaultTask" :show-body="false" :deletable="false" />
+      </template>
+    </container-section>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Task from "../../types/Task";
+import { Component } from "vue-property-decorator";
 
-export default Vue.extend({
-  computed: {
-    tasks(): Task[] {
-      console.log(this.$store);
-      return this.$store.getters.allTasks;
-    }
+import ContainerHeader from "../ContainerHeader/ContainerHeader.vue";
+import ContainerSection from "../ContainerSection/ContainerSection.vue";
+import Task from "../Task/Task.vue";
+
+import { Task as TaskType } from "../../types/Task";
+
+@Component({
+  components: {
+    ContainerHeader,
+    ContainerSection,
+    Task
   }
-});
+})
+export default class TaskContainer extends Vue {
+  defaultTask: TaskType = {
+    id: "none",
+    title: "Please add a task",
+    content: "",
+    created: 0
+  };
+  get tasks(): TaskType[] {
+    return this.$store.getters.allTasks;
+  }
+}
 </script>
 
 <style lang="scss">
 .task-container {
   background: #445566;
+  padding: 20px 10px;
   height: calc(100vh - 85px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  overflow-y: scroll;
 }
 </style>
 
