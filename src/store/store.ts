@@ -1,5 +1,4 @@
-import Vue from "vue";
-import { StoreOptions, Action, ActionContext } from "vuex";
+import { StoreOptions, ActionContext } from "vuex";
 
 import {
   createTask,
@@ -30,9 +29,9 @@ export const state: StoreOptions<RootState> = {
       commit("populateTasks", tasks);
     },
     async createTask({ commit }: ActionContext<RootState, {}>, task: NewTask) {
-      const insertedTask = await createTask(task);
+      await createTask(task);
       // This extra step is only required because
-      // we don't return the new task object upon inserting :( No way to get the ID
+      // we don't return the new task object upon inserting :( No way to get the ID without an extra request
       const result = await retrieveTasks();
       commit("populateTasks", result.data.tasks);
     },

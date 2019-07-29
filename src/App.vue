@@ -32,9 +32,15 @@ export default class App extends Vue {
 </script>
 <style lang="scss">
 @import "./styles/_reset.scss";
+@import "./styles/_theme.scss";
 .container {
   height: 100vh;
   width: 100vw;
+  background: #444;
+
+  @media (min-width: $medium) {
+    padding: 15px;
+  }
 }
 </style>
 

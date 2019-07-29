@@ -29,6 +29,15 @@ export default class Titlebar extends Vue {}
     color: $text-main;
     text-align: right;
     margin-top: auto;
+
+    @media (min-width: $medium) {
+      font-size: 20pt;
+    }
+  }
+
+  @media (min-width: $medium) {
+    width: 500px;
+    margin-bottom: 15px;
   }
 }
 </style>

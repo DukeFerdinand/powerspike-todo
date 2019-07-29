@@ -2,7 +2,7 @@
   <div class="task-container">
     <!-- Add task column -->
     <container-section>
-      <container-header title="Add a task" />
+      <container-header title="Add a task" :isAddTask="true" />
       <new-task-form />
     </container-section>
 
@@ -65,6 +65,11 @@ export default class TaskContainer extends Vue {
   justify-content: flex-start;
 
   overflow-y: scroll;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 </style>
 
