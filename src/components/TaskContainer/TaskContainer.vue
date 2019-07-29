@@ -1,9 +1,11 @@
 <template>
   <div class="task-container">
+    <!-- Add task column -->
     <container-section>
       <container-header title="Add a task" />
       <new-task-form />
     </container-section>
+
     <!-- Center task column -->
     <container-section>
       <container-header title="Tasks" />
@@ -14,7 +16,7 @@
         </template>
       </template>
       <template v-else>
-        <task :task="defaultTask" :show-body="false" :deletable="false" />
+        <task :task="defaultTask" :show-body="false" :showDelete="false" />
       </template>
     </container-section>
   </div>

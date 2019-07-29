@@ -3,7 +3,9 @@
     <h2 class="title">
       <slot name="title" />
     </h2>
-    <button class="close-button" @click="deleteTask()">Delete</button>
+    <template v-if="showDelete">
+      <button class="close-button" @click="deleteTask()">Delete</button>
+    </template>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import { Component, Prop } from "vue-property-decorator";
 @Component
 export default class TaskHeader extends Vue {
   @Prop() id!: string;
+  @Prop({ default: true }) showDelete!: boolean;
+
   deleteTask(): void {
     this.$store.dispatch("deleteTask", this.id);
   }
