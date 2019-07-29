@@ -38,6 +38,8 @@ export default class App extends Vue {
   width: 100vw;
   background: #444;
 
+  font-family: $app-font;
+
   @media (min-width: $medium) {
     padding: 15px;
   }
