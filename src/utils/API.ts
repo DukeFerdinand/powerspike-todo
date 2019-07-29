@@ -20,3 +20,9 @@ export const createTask = async (
   const task = await API.post("/new", { ...newTask });
   return task;
 };
+
+export const deleteTask = async (
+  taskId: string
+): Promise<AxiosResponse<Task>> => {
+  return await API.delete(`/delete/${taskId}`);
+};

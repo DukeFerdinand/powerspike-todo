@@ -25,9 +25,11 @@ app.get("/api", async (req, res) => {
     const result = await API.get("/");
     res.send({ tasks: result.data });
   } catch (err) {
-    res.statusCode = 500;
+    res.statusCode = 403;
     res.send({
-      msg: "Unable to connect to API, please check your API token and try again"
+      msg:
+        "Unable to connect to API, please check your API token and try again",
+      err
     });
   }
 });
@@ -35,11 +37,27 @@ app.get("/api", async (req, res) => {
 app.post("/api/new", async (req, res) => {
   try {
     const result = await API.post("/new", { ...req.body });
-    res.send("poop");
+    res.send("success");
   } catch (err) {
-    res.statusCode = 500;
+    res.statusCode = 403;
     res.send({
-      msg: "Unable to connect to API, please check your API token and try again"
+      msg:
+        "Unable to connect to API, please check your API token and try again",
+      err
+    });
+  }
+});
+
+app.delete("/api/delete/:taskId", async (req, res) => {
+  try {
+    await API.delete(`/delete/${req.params.taskId}`);
+    res.send("success");
+  } catch (err) {
+    res.statusCode = 403;
+    res.send({
+      msg:
+        "Unable to connect to API, please check your API token and try again",
+      err
     });
   }
 });

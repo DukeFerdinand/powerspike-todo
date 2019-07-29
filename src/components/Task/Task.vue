@@ -1,6 +1,6 @@
 <template>
   <div class="task">
-    <task-header>
+    <task-header :id="task.id">
       <template v-slot:title>{{task.title}}</template>
     </task-header>
     <task-body>{{task.content}}</task-body>
@@ -27,9 +27,13 @@ export default class Task extends Vue {
   @Prop({ default: true }) showBody!: boolean;
   @Prop({ default: true }) deletable!: boolean;
 
-  mounted() {
-    console.log(this.$props.task);
+  deleteTask() {
+    this.$store.dispatch("deleteTask", this.task.id);
   }
+
+  // mounted() {
+  //   console.log();
+  // }
 }
 </script>
 

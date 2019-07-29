@@ -9,6 +9,7 @@
       <container-header title="Tasks" />
       <template v-if="tasks[0]">
         <template v-for="task in tasks">
+          <!-- Actual tasks being rendered -->
           <task :key="task.id" :task="task" />
         </template>
       </template>
