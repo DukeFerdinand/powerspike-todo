@@ -16,9 +16,13 @@ export default class ContainerSection extends Vue {}
 @import "../../styles/_theme.scss";
 .container-section {
   width: 100%;
+  margin-bottom: 20px;
 
   @media (min-width: $medium) {
     max-width: 350px;
+  }
+  @media (min-width: $large) {
+    max-width: 500px;
   }
 }
 </style>
