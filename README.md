@@ -6,6 +6,8 @@ An todo app using Vue.
 
 Very fun project. Would do again!
 
+**Pre running**: copy `.example.env` to `.env` and populate your API key
+
 **To run**: `npm start`
 <br><br><br>
 
