@@ -11,6 +11,7 @@ h4,
 h5 {
   padding: 0;
   margin: 0;
+  font-weight: inherit;
 }
 
 body {
@@ -18,4 +19,8 @@ body {
   width: 100vw;
   overflow: hidden;
   background: #444;
+}
+
+button {
+  cursor: pointer;
 }

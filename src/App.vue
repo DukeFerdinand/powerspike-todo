@@ -34,11 +34,11 @@ export default class App extends Vue {
 @import "./styles/_reset.scss";
 @import "./styles/_theme.scss";
 .container {
+  @extend %app-text;
+
   height: 100vh;
   width: 100vw;
   background: #444;
-
-  font-family: $app-font;
 
   @media (min-width: $medium) {
     padding: 15px;

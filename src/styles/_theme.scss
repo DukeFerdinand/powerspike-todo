@@ -1,12 +1,23 @@
+// colors
 $text-main: #444444;
 $background-body: #444444;
-$background-main: #445566;
+$background-main: #666666;
 $background-secondary: #efefef;
 
+$bg-danger: #aa3333;
+$bg-success: #5e9c85;
+
+// paddings
 $padding-task: 10px;
 
+//fonts
 $app-font: "Roboto", sans-serif;
 
 // Media queries
 $medium: 800px;
 $large: 1080px;
+
+%app-text {
+  font-family: $app-font;
+  font-weight: 500;
+}

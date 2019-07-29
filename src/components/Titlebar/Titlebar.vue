@@ -22,6 +22,9 @@ export default class Titlebar extends Vue {}
   justify-content: space-between;
   height: 85px;
   .title {
+    font-family: $app-font;
+    font-weight: 600;
+
     color: $text-main;
     font-size: 35pt;
   }
@@ -38,6 +41,9 @@ export default class Titlebar extends Vue {}
   @media (min-width: $medium) {
     width: 500px;
     margin-bottom: 15px;
+  }
+  @media (min-width: $large) {
+    width: 700px;
   }
 }
 </style>

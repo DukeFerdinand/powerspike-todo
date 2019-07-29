@@ -22,15 +22,16 @@ export default class ContainerHeader extends Vue {
   margin-bottom: 20px;
 
   &.add-task-header {
-    background-color: #42886d;
+    background-color: $bg-success;
     margin-bottom: 0;
   }
 
   .title {
+    @extend %app-text;
+
     color: $text-main;
     font-size: 20pt;
     padding: 5px;
-
     @media (min-width: $medium) {
       padding: 10px;
       font-size: 25pt;

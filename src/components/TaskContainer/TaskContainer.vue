@@ -7,7 +7,7 @@
     </container-section>
 
     <!-- Center task column -->
-    <container-section>
+    <container-section :isScrollable="true">
       <container-header title="Tasks" />
       <template v-if="tasks[0]">
         <template v-for="task in tasks">
@@ -55,8 +55,9 @@ export default class TaskContainer extends Vue {
 </script>
 
 <style lang="scss">
+@import "../../styles/_theme.scss";
 .task-container {
-  background: #445566;
+  background: $background-main;
   padding: 20px 10px;
   height: calc(100vh - 85px);
 
@@ -64,11 +65,10 @@ export default class TaskContainer extends Vue {
   flex-direction: column;
   justify-content: flex-start;
 
-  overflow-y: scroll;
-
   @media (min-width: 800px) {
     flex-direction: row;
     justify-content: space-evenly;
+    height: calc(100vh - 20%);
   }
 }
 </style>

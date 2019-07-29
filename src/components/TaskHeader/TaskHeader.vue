@@ -4,7 +4,7 @@
       <slot name="title" />
     </h2>
     <template v-if="showDelete">
-      <button class="close-button" @click="deleteTask()">Delete</button>
+      <button class="delete-button" @click="deleteTask()">Delete</button>
     </template>
   </div>
 </template>
@@ -33,13 +33,17 @@ export default class TaskHeader extends Vue {
 
   padding: $padding-task;
   .title {
+    @extend %app-text;
+
     color: $text-main;
     font-size: 18pt;
   }
-  .close-button {
+  .delete-button {
     background: #aa3333;
     border: none;
     color: #efefef;
+    max-width: 55px;
+    max-height: 30px;
   }
 }
 </style>
